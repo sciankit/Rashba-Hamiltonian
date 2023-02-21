@@ -13,8 +13,8 @@ alpha_ry=data.loc["alpha_ry"]
 alpha_rz=data.loc["alpha_rz"]
 effmass_y=data.loc["effmass_y"]
 effmass_z=data.loc["effmass_z"]
-alatticevector=data.loc["alatticevector"]
 blatticevector=data.loc["blatticevector"]
+clatticevector=data.loc["clatticevector"]
 ## Contants and Variables
 #planck_contant =  4.135667662e-15 ## eV.s
 planck_contant = 6.62607015e-34 ## J.s
@@ -30,11 +30,11 @@ def E_cal(K_y,K_z):
     return (E1+E2+E3,E1+E2-E3)
 ## Setting up for Plotting
 X = [round(x, 3) for x in list(np.arange(-0.5, 0.52, 0.001))]
-Y1 = [2*x for x in X]
-Y2 = [2*x for x in X]
+Y1, Y2 = X, X
+
 for i in range(len(X)):
-    if X[i]<0:Y1[i],Y2[i]=E_cal(0,-X[i]*2*math.pi/blatticevector)
-    else:Y1[i],Y2[i]=E_cal(X[i]*2*math.pi/alatticevector,0)
+    if X[i]<0:Y1[i],Y2[i]=E_cal(0,-X[i]*2*math.pi/clatticevector)
+    else:Y1[i],Y2[i]=E_cal(X[i]*2*math.pi/blatticevector,0)
 
 fig = plt.figure()
 ax = fig.add_subplot(111)
@@ -53,6 +53,7 @@ def format_func(N, tick_number):
 plt.xticks(np.arange(-0.5, 0.6, 0.5))
 ax.xaxis.set_major_formatter(tick.FuncFormatter(format_func))
 date_time = time.ctime()
+plt.show()
 plt.savefig(f'plot_{date_time}.png')
 
 
