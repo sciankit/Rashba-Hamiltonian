@@ -26,7 +26,7 @@ band_dic[band_name]=np.array([tmp_list]).transpose()
 for x in bands:
     tmp=band_dic[x]
     plt.plot(tmp[0],tmp[1], c ="red")
-    break
+
 #print(band_dic)
 plt.savefig(f'raw_data.png')
 def firstorderdiff(k,band):
@@ -57,6 +57,12 @@ tmp=band_dic[x]
 peaks=firstorderdiff(tmp[0],tmp[1])
 print(peaks)    
 for x in peaks:plt.axvline(x, color='black', linewidth=0.5)
+
+x="Band-Index 154"
+tmp=band_dic[x]
+peaks=firstorderdiff(tmp[0],tmp[1])
+print(peaks)    
+for x in peaks:plt.axvline(x, color='yellow', linewidth=0.5)
 
 
 

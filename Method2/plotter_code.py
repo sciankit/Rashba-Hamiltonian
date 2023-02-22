@@ -40,6 +40,7 @@ for i in range(len(X)):
 
 fig = plt.figure()
 ax = fig.add_subplot(111)
+X = [x+0.39456 for x in X]
 plt.plot(X, Y1, c ="red")
 plt.plot(X, Y2, c ="red")
 plt.axhline(0, color='black', linewidth=0.5),plt.axvline(0, color='black', linewidth=0.5)

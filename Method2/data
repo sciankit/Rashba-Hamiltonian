@@ -1,7 +1,7 @@
 Varibale_name= Value
-epsilon_0= 0.5
-alpha_ry=0.34
-alpha_rz= 0.07
+epsilon_0=0.220777
+alpha_ry=0.42
+alpha_rz= 0.073
 effmass_y=0.521
 effmass_z=1.352
 blatticevector= 5.613
