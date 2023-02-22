@@ -47,25 +47,20 @@ plt.xlabel('$\longleftarrow$ $K_z$   |   $K_y$ $\longrightarrow$')
 plt.ylabel('E (eV)')
 plt.title('E vs K')
 
-""" def format_func(N, tick_number):
+def format_func(N, tick_number):
     if N == 0:return r"$\Gamma$"
     elif N == -0.5:return r"$Z$"
     elif N == 0.5:return r"$Y$"
 
 plt.xticks(np.arange(-0.5, 0.6, 0.5))
-ax.xaxis.set_major_formatter(tick.FuncFormatter(format_func)) """
+ax.xaxis.set_major_formatter(tick.FuncFormatter(format_func))
 date_time = time.ctime()
 
-
-data2 = pd.read_csv('conduction_band.dat',delimiter=",")
-
-print(data2)
-plt.scatter(data2["Band"], data2["153"],color="black",s=1)
 plt.show()
-#plt.savefig(f'plot_{date_time}.png')
+plt.savefig(f'plot_{date_time}.png')
 
 
 # SAVING DATA
 titles = ['w', 'E+', 'E-']
-#np.savetxt('Output1.dat', np.column_stack((X, Y1, Y2)), fmt='%f', delimiter='\t', header='\t\t\t'.join(titles))
-#np.savetxt('Output2.dat', np.column_stack(([x + 0.5 for x in X], Y1, Y2)), fmt='%f', delimiter='\t', header='\t\t\t'.join(titles))
+np.savetxt('Output1.dat', np.column_stack((X, Y1, Y2)), fmt='%f', delimiter='\t', header='\t\t\t'.join(titles))
+np.savetxt('Output2.dat', np.column_stack(([x + 0.5 for x in X], Y1, Y2)), fmt='%f', delimiter='\t', header='\t\t\t'.join(titles))
