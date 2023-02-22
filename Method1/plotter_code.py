@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as tick
 import time
 data = pd.read_csv('data',delimiter="=")
+
 data.set_index("Varibale_name", drop=True, inplace=True)
 #print(data)
 epsilon_0= data.loc["epsilon_0"]
@@ -30,7 +31,8 @@ def E_cal(K_y,K_z):
     return (E1+E2+E3,E1+E2-E3)
 ## Setting up for Plotting
 X = [round(x, 3) for x in list(np.arange(-0.5, 0.52, 0.001))]
-Y1, Y2 = X, X
+Y1 = [x for x in X]
+Y2 = [x for x in X]
 
 for i in range(len(X)):
     if X[i]<0:Y1[i],Y2[i]=E_cal(0,-X[i]*2*math.pi/clatticevector)
@@ -53,6 +55,7 @@ def format_func(N, tick_number):
 plt.xticks(np.arange(-0.5, 0.6, 0.5))
 ax.xaxis.set_major_formatter(tick.FuncFormatter(format_func))
 date_time = time.ctime()
+
 plt.show()
 plt.savefig(f'plot_{date_time}.png')
 
