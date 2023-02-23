@@ -60,11 +60,14 @@ date_time = time.ctime()
 
 data2 = pd.read_csv('conduction_band.dat',delimiter=",")
 
-print(data2)
+#print(data2)
 plt.scatter(data2["Band"], data2["153"],color="black",s=1)
-plt.show()
-#plt.savefig(f'plot_{date_time}.png')
 
+plt.xlim([0.25, 0.5])
+plt.ylim([0.2, 0.3])
+#plt.show()
+#plt.savefig(f'plot_{date_time}.png')
+plt.savefig(f'plot_2.png')
 
 # SAVING DATA
 titles = ['w', 'E+', 'E-']
